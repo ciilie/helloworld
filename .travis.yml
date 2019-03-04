@@ -7,7 +7,6 @@ before_install:
 - docker pull carlad/sinatra
 - docker run -p 80:80 ciilie/helloworld:rest-api
 - docker ps -a
-- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
 # command to install dependencies
 install:

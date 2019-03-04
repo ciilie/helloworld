@@ -5,7 +5,7 @@ services:
 
 before_install:
 - docker pull ciilie/helloworld
-- docker run -p 80:80 ciilie/helloworld:rest-api
+- docker run -d -p 80:80 ciilie/helloworld:rest-api
 - docker ps -a
 
 # command to install dependencies

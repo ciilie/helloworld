@@ -11,4 +11,4 @@ def getClient(address):
 
 
 if __name__=='__main__':
-   getClient('http://localhosti/todo/api/v1.0/tasks')
+   getClient('http://localhost/todo/api/v1.0/tasks')

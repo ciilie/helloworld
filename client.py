@@ -2,9 +2,7 @@ import requests
 from requests.auth import HTTPProxyAuth
 
 def getClient(address):
-   proxies = {"http":"trend3.sbab.ad:8080"}
-   auth = HTTPProxyAuth("icor", "passwd")
-   resp = requests.get(address, proxies=proxies, auth=auth)
+   resp = requests.get(address)
    
    if resp.status_code != 200:
       # This means something went wrong.

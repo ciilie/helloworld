@@ -2,7 +2,7 @@ version: "3"
 services:
   web:
     # replace username/repo:tag with your name and image details
-    image: ciilie/helloworld:rest-api
+    image: ciilie/helloworld:latest
     deploy:
       replicas: 2
       resources:
@@ -12,7 +12,7 @@ services:
       restart_policy:
         condition: on-failure
     ports:
-      - "4000:80"
+      - "80:80"
     networks:
       - webnet
 networks:

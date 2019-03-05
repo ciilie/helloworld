@@ -1,0 +1,33 @@
+{% block title %}
+Add new task
+{% endblock %}
+{% block content %}
+    <form method="POST" action="/addtask">
+        {{ form.hidden_tag() }}
+        <div>{{ form.title.label }}
+             {% if form.title.errors %}
+                {% for error in form.title.errors %}
+                   <li class="error-message">{{ error }}</li>
+                {% endfor %}
+             {% endif %}
+             {{ form.title(size=60) }}
+        </div>
+        <div>{{ form.description.label }}
+             {% if form.description.errors %}
+                {% for error in form.description.errors %}
+                   <li class="error-message">{{ error }}</li>
+                {% endfor %}
+             {% endif %}
+             {{ form.description(size=60) }}
+        </div>
+        <div>{{ form.done.label }}
+             {% if form.done.errors %}
+                {% for error in form.done.errors %}
+                   <li class="error-message">{{ error }}</li>
+                {% endfor %}
+             {% endif %}
+             {{ form.done(size=60) }}
+        </div>
+        {{ form.submit(class="btn-primary") }}
+    </form>
+{% endblock %}

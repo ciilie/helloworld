@@ -11,4 +11,4 @@ def getClient(address):
 
 
 if __name__=='__main__':
-   getClient('http://localhost/gettasks')
+   getClient('http://0.0.0.0/gettasks')

@@ -41,7 +41,7 @@ class MyTest(TestCase):
 
 
    def test_poptask(self):
-       """Test that after removing all the tasks we dont get any Learn Javascript"""
+       """Test that after removing the last task we dont get any Learn Javascript"""
        request = urllib2.Request('http://localhost/poptask')
        request.get_method = lambda: 'DELETE'
        response = urllib2.urlopen(request)

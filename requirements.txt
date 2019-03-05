@@ -2,4 +2,4 @@ Flask
 Redis
 requests
 flask_wtf
-
+flask_testing

@@ -4,22 +4,20 @@ from flask_testing import TestCase
 TESTING = True
 
 class MyTest(TestCase):
-   # executed prior to each test
-   def setUp(self):
-      app.config['TESTING'] = True
-      app.config['WTF_CSRF_ENABLED'] = False
-      app.config['DEBUG'] = False
-      self.app = app.test_client()
-      self.assertEqual(app.debug, False)
-
-   # executed after each test
-   def tearDown(self):
-      pass
 
    def create_app(self):
        app = Flask(__name__)
        app.config['TESTING'] = True
        return app
+
+   # executed prior to each test
+   def setUp(self):
+       pass
+
+   # executed after each test
+   def tearDown(self):
+      pass
+
 
 
    def test_returncode(self):

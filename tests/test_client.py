@@ -26,6 +26,7 @@ class MyTest(TestCase):
        response_content = response.read()
        self.assertIn("Buy groceries",response_content)
 
+
    def test_addtask(self):
        """Test that a new task can be added"""
        post_params = {
@@ -37,3 +38,12 @@ class MyTest(TestCase):
        response = urllib2.urlopen('http://localhost/addtask',params)
        response_content = response.read()
        self.assertIn("Learn Javascript",response_content)
+
+
+   def test_poptask(self):
+       """Test that after removing all the tasks we dont get any Learn Javascript"""
+       response = urllib2.urlopen('http://localhost/poptask')
+       response = urllib2.urlopen('http://localhost/poptask')
+       response = urllib2.urlopen('http://localhost/poptask')
+       response_content = response.read()
+       self.assertNotIn("Learn Javascript", response_content)

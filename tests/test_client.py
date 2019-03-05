@@ -22,13 +22,15 @@ class MyTest(TestCase):
 
 
    def test_serverup(self):
+       """test that the response code is 200"""
        response = urllib2.urlopen('http://localhost/')
        response_content = response.read()
        self.assertEqual(response.code, 200)
 
 
    def test_gettasks(self):
+       """Test that the default tasks return correctly"""
        response = urllib2.urlopen('http://localhost/gettasks')
        response_content = response.read()
-       self.assertContains(response_content, "Buy groceries")
+       self.assertIn("Buy groceries",response_content)
 

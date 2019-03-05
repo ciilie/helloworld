@@ -40,9 +40,9 @@ class MyTest(TestCase):
        self.assertIn("Learn Javascript",response_content)
 
 
-   def test_poptask(self):
+   def test_deletetask(self):
        """Test that after removing the last task we dont get any Learn Javascript"""
-       request = urllib2.Request('http://localhost/poptask')
+       request = urllib2.Request('http://localhost/deletetask')
        request.get_method = lambda: 'DELETE'
        response = urllib2.urlopen(request)
        response_content = response.read()

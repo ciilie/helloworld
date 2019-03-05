@@ -62,15 +62,14 @@ def add_task():
         return render_template("addtask.html", title="Add new task", form=form)
 
 
-
-
-@app.route('/poptask', methods=['DELETE'])
+@app.route('/deletetask', methods=['DELETE'])
 def pop_task():
     if len(tasks)>0:
         tasks.pop(-1)
         return jsonify({'tasks': tasks})
     else:
         return "No more tasks to pop"
+
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=80)

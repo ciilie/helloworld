@@ -4,4 +4,3 @@ requests
 flask_wtf
 flask_testing
 pytest
-urllib2

@@ -1,3 +1,4 @@
+import urllib2
 from flask import Flask
 from flask_testing import TestCase
 
@@ -20,11 +21,12 @@ class MyTest(TestCase):
 
 
 
-   def test_returncode(self):
-        response = self.app.get('/', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+   def test_serverup(self):
+       response = urllib2.urlopen(self.get_server_url('http://localhost/'))
+       self.assertEqual(response.code, 200)
 
 
    def test_gettasks(self):
-       response = self.app.get('/gettasks', follow_redirects=True)
+       response = urllib2.urlopen(self.get_server_url('http://localhost/gettasks'))
        self.assertContains(response, "Buy groceries")
+

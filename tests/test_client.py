@@ -11,15 +11,6 @@ class MyTest(TestCase):
        app.config['TESTING'] = True
        return app
 
-   # executed prior to each test
-   def setUp(self):
-       pass
-
-   # executed after each test
-   def tearDown(self):
-      pass
-
-
 
    def test_serverup(self):
        """test that the response code is 200"""

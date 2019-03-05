@@ -42,8 +42,8 @@ class MyTest(TestCase):
 
    def test_poptask(self):
        """Test that after removing all the tasks we dont get any Learn Javascript"""
-       response = urllib2.urlopen('http://localhost/poptask')
-       response = urllib2.urlopen('http://localhost/poptask')
-       response = urllib2.urlopen('http://localhost/poptask')
+       request = urllib2.Request('http://localhost/poptask')
+       request.get_method = lambda: 'DELETE'
+       response = urllib2.urlopen(request)
        response_content = response.read()
        self.assertNotIn("Learn Javascript", response_content)

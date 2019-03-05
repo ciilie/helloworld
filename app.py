@@ -63,7 +63,7 @@ def add_task():
 
 
 @app.route('/deletetask', methods=['DELETE'])
-def pop_task():
+def delete_task():
     if len(tasks)>0:
         tasks.pop(-1)
         return jsonify({'tasks': tasks})

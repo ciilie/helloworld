@@ -8,13 +8,13 @@ tasks = [
     {
         'id': 1,
         'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
+        'description': u'Milk, Cheese, Bread',
         'done': False
     },
     {
         'id': 2,
         'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web', 
+        'description': u'Work and experiment 10000 hours of Python',
         'done': False
     }
 ]
@@ -27,8 +27,20 @@ def index():
     html = "<h3>Hello world!</h3>" \
     return html
 
-@app.route('/todo/api/v1.0/tasks', methods=['GET'])
-def get_tasks():
+@app.route('/gettasks', methods=['GET'])
+def get_tasks(self):
+    return jsonify({'tasks': tasks})
+
+
+@app.route('/addtask', methods=['GET'])
+def add_task(self,title,description,done):
+    max_id=max(tasks, key=lambda x:x['id'])
+    newtask={'id':max_id+1,
+             'title': title,
+             'description': description,
+             'done': done
+             }
+    tasks.append(newtask)
     return jsonify({'tasks': tasks})
 
 

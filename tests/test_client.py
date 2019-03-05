@@ -16,6 +16,12 @@ class MyTest(TestCase):
    def tearDown(self):
       pass
 
+   def create_app(self):
+       app = Flask(__name__)
+       app.config['TESTING'] = True
+       return app
+
+
    def test_returncode(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)

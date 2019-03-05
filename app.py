@@ -32,7 +32,7 @@ def index():
              <p>Usage:</p>
              <li>http://localhost/gettasks -- gets all the current tasks</li/><br/>
              <li>http://localhost/addtask -- adds a new task to the current tasks</li><br/>          
-             <li>http://localhost/pop -- pop a task from the current tasks</li><br/>
+             <li>http://localhost/deletetask -- remove a task from the current tasks</li><br/>
              """
     return output
 

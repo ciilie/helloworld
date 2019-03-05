@@ -1,3 +1,4 @@
+import urllib
 import urllib2
 from flask import Flask
 from flask_testing import TestCase
@@ -25,3 +26,14 @@ class MyTest(TestCase):
        response_content = response.read()
        self.assertIn("Buy groceries",response_content)
 
+   def test_addtask(self):
+       """Test that a new task can be added"""
+       post_params = {
+           'title': u'Learn Javascript',
+           'description': u'Work and experiment 1000 hours of Javascript',
+           'done': False
+       }
+       params = urllib.urlencode(post_params)
+       response = urllib2.urlopen('http://localhost/addtask',params)
+       response_content = response.read()
+       self.assertIn("Learn Javascript",response_content)
